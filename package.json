@@ -1,0 +1,24 @@
+{
+  "name": "antarium-obfuscator",
+  "version": "1.0.0",
+  "description": "Antarium.",
+  "type": "commonjs",
+  "bin": {
+    "antarium": "antarium.js"
+  },
+  "main": "antarium.js",
+  "scripts": {
+    "start": "node antarium.js"
+  },
+  "keywords": [
+    "obfuscator",
+    "javascript",
+    "html",
+    "obfuscation",
+    "antarium"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "javascript-obfuscator": "^4.1.1"
+  }
+}
